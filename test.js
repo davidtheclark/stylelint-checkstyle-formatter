@@ -1,6 +1,6 @@
 var test = require('tape');
 var xml2js = require('xml2js');
-var checkstyleFormatter = require('.');
+var checkstyleFormatter = require('./index');
 
 var mockResults = [
   {
