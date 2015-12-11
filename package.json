@@ -1,0 +1,33 @@
+{
+  "name": "stylelint-checkstyle-formatter",
+  "version": "0.1.0",
+  "description": "Output Checkstyle XML reports of stylelint results",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stylelint/stylelint-checkstyle-formatter.git"
+  },
+  "keywords": [
+    "stylelint",
+    "checkstyle",
+    "formatter",
+    "reporter",
+    "report"
+  ],
+  "author": "David Clark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stylelint/stylelint-checkstyle-formatter/issues"
+  },
+  "homepage": "https://github.com/stylelint/stylelint-checkstyle-formatter#readme",
+  "devDependencies": {
+    "tape": "^4.2.2",
+    "xml2js": "^0.4.15"
+  },
+  "dependencies": {
+    "lodash": "^3.0.0"
+  }
+}
