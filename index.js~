@@ -1,8 +1,8 @@
-var _ = require('lodash')
-var checkstyleVersion = '4.3' // Why? Because that's what ESLint uses, I suppose
+const _ = require('lodash')
+const checkstyleVersion = '4.3' // Why? Because that's what ESLint uses, I suppose
 
 module.exports = function (stylelintResults) {
-  var xml = '<?xml version="1.0" encoding="utf-8"?>'
+  let xml = '<?xml version="1.0" encoding="utf-8"?>'
   xml += '<checkstyle version="' + checkstyleVersion + '">'
   stylelintResults.forEach(function (stylelintResult) {
     xml += '<file name="' + _.escape(stylelintResult.source) + '">'
