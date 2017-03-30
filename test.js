@@ -1,8 +1,8 @@
-let test = require('tape')
-let xml2js = require('xml2js')
-let checkstyleFormatter = require('./index')
+var test = require('tape')
+var xml2js = require('xml2js')
+var checkstyleFormatter = require('./index')
 
-let mockResults = [
+var mockResults = [
   {
     source: 'path/to/fileA.css',
     errored: false,
@@ -43,10 +43,10 @@ let mockResults = [
   }
 ]
 
-let expectedXml = '<?xml version="1.0" encoding="utf-8"?><checkstyle version="4.3"><file name="path/to/fileA.css"><error source="stylelint.rules.block-no-empty" line="3" column="8" severity="warning" message="No empty block!" /></file><file name="path/to/fileB.css"><error source="stylelint.rules.foo" line="1" column="2" severity="error" message="foo text" /><error source="stylelint.rules.bar" line="2" column="5" severity="error" message="bar text" /></file><file name="path/to/fileC.css"></file></checkstyle>'
+var expectedXml = '<?xml version="1.0" encoding="utf-8"?><checkstyle version="4.3"><file name="path/to/fileA.css"><error source="stylelint.rules.block-no-empty" line="3" column="8" severity="warning" message="No empty block!" /></file><file name="path/to/fileB.css"><error source="stylelint.rules.foo" line="1" column="2" severity="error" message="foo text" /><error source="stylelint.rules.bar" line="2" column="5" severity="error" message="bar text" /></file><file name="path/to/fileC.css"></file></checkstyle>'
 
 test('output XML string', function (t) {
-  let output = checkstyleFormatter(mockResults)
+  var output = checkstyleFormatter(mockResults)
   t.equal(output, expectedXml, 'matches expectation')
   t.doesNotThrow(function () {
     xml2js.parseString(output, function (err) {
