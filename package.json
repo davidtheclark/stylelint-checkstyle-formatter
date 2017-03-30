@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/stylelint/stylelint-checkstyle-formatter#readme",
   "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "standard": "^9.0.2",
     "tape": "^4.2.2",
     "xml2js": "^0.4.15"
   },
