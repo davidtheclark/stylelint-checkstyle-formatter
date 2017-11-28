@@ -1,6 +1,6 @@
 {
   "name": "stylelint-checkstyle-formatter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Output Checkstyle XML reports of stylelint results",
   "main": "index.js",
   "scripts": {
