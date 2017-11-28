@@ -1,21 +1,21 @@
-var _ = require('lodash');
+var escape = require('lodash/escape');
 var checkstyleVersion = '4.3'; // Why? Because that's what ESLint uses, I suppose
 
 module.exports = function(stylelintResults) {
   var xml = '<?xml version="1.0" encoding="utf-8"?>';
   xml += '\n<checkstyle version="' + checkstyleVersion + '">';
   stylelintResults.forEach(function(stylelintResult) {
-    xml += '\n  <file name="' + _.escape(stylelintResult.source) + '">';
+    xml += '\n  <file name="' + escape(stylelintResult.source) + '">';
     if (!stylelintResult.warnings.length) {
       xml += '</file>';
       return;
     }
     stylelintResult.warnings.forEach(function(warning) {
-      xml += '\n    <error source="' + _.escape('stylelint.rules.' + warning.rule) + '" ';
-      xml += 'line="' + _.escape(warning.line) + '" ';
-      xml += 'column="' + _.escape(warning.column) + '" ';
-      xml += 'severity="' + _.escape(warning.severity) + '" ';
-      xml += 'message="' + _.escape(warning.text) + '" ';
+      xml += '\n    <error source="' + escape('stylelint.rules.' + warning.rule) + '" ';
+      xml += 'line="' + escape(warning.line) + '" ';
+      xml += 'column="' + escape(warning.column) + '" ';
+      xml += 'severity="' + escape(warning.severity) + '" ';
+      xml += 'message="' + escape(warning.text) + '" ';
       xml += '/>';
     });
     xml += '\n  </file>';
