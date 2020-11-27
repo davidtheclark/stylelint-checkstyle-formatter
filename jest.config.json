@@ -1,0 +1,6 @@
+{
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [],
+    "reporters": ["default"]
+}
