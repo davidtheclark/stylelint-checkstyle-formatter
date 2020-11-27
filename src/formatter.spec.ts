@@ -1,6 +1,6 @@
 import { stylelintToCheckstyle } from './formatter';
 import { LintResult } from 'stylelint';
-import { parseString as parseXMLString } from 'xml2js';
+import { convert } from 'xmlbuilder2';
 
 const mockResults: LintResult[] = [
     {
@@ -52,27 +52,31 @@ const mockResults: LintResult[] = [
     },
 ];
 
-const expectedXml =
+const expectedXml = convert(
     '<?xml version="1.0" encoding="utf-8"?>\n' +
-    '<checkstyle version="4.3">\n' +
-    '  <file name="path/to/fileA.css">\n' +
-    '    <error source="stylelint.rules.block-no-empty" line="3" column="8" severity="warning" message="No empty block!" />\n' +
-    '  </file>\n' +
-    '  <file name="path/to/fileB.css">\n' +
-    '    <error source="stylelint.rules.foo" line="1" column="2" severity="error" message="foo text" />\n' +
-    '    <error source="stylelint.rules.bar" line="2" column="5" severity="error" message="bar text" />\n' +
-    '  </file>\n' +
-    '  <file name="path/to/fileC.css"></file>\n' +
-    '</checkstyle>';
+        '<checkstyle version="4.3">\n' +
+        '  <file name="path/to/fileA.css">\n' +
+        '    <error source="stylelint.rules.block-no-empty" line="3" column="8" severity="warning" message="No empty block!" />\n' +
+        '  </file>\n' +
+        '  <file name="path/to/fileB.css">\n' +
+        '    <error source="stylelint.rules.foo" line="1" column="2" severity="error" message="foo text" />\n' +
+        '    <error source="stylelint.rules.bar" line="2" column="5" severity="error" message="bar text" />\n' +
+        '  </file>\n' +
+        '  <file name="path/to/fileC.css"></file>\n' +
+        '</checkstyle>',
+    { format: 'object' },
+);
 
 describe('checkstyle formatter', () => {
-    test('output XML string', () => {
+    it('output XML string', () => {
         const output = stylelintToCheckstyle(mockResults);
-        expect(output).toBe(expectedXml);
+        expect(convert(output, { format: 'object' })).toEqual(expectedXml);
+        const crashes = () => {
+            convert('not an xml string<<>>><<<');
+        };
+        expect(crashes).toThrow();
         const f = () => {
-            parseXMLString(output, function (err) {
-                if (err) throw err;
-            });
+            convert(output);
         };
         expect(f).not.toThrow();
     });

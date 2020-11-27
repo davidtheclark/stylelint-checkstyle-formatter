@@ -2,5 +2,6 @@
     "preset": "ts-jest",
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [],
-    "reporters": ["default"]
+    "reporters": ["default"],
+    "rootDir": "src"
 }
