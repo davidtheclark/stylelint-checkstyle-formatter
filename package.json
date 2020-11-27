@@ -2,7 +2,8 @@
     "name": "stylelint-checkstyle-formatter",
     "version": "0.1.2",
     "description": "Output Checkstyle XML reports of stylelint results",
-    "main": "index.js",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc --project tsconfig.app.json",
         "format": "prettier -w ./**/*.{json,ts}",
