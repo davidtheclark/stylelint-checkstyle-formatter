@@ -30,6 +30,9 @@
         "url": "https://github.com/stylelint/stylelint-checkstyle-formatter/issues"
     },
     "homepage": "https://github.com/stylelint/stylelint-checkstyle-formatter#readme",
+    "dependencies": {
+        "xmlbuilder2": "^2.4.0"
+    },
     "devDependencies": {
         "@types/jest": "^26.0.15",
         "@types/lodash": "^4.14.165",
@@ -45,10 +48,6 @@
         "prettier": "^2.2.0",
         "prettier-eslint": "^12.0.0",
         "ts-jest": "^26.4.4",
-        "typescript": "^4.1.2",
-        "xmlbuilder2": "^2.4.0"
-    },
-    "dependencies": {
-        "lodash": "^4.17.20"
+        "typescript": "^4.1.2"
     }
 }
