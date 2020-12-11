@@ -1,0 +1,17 @@
+$map: (
+    'key': 5px,
+);
+
+.button {
+    &.hint {
+        .spinner {
+            width: 50px;
+        }
+    }
+
+    .spinner {
+        width: 25px;
+
+        height: map-get($map, KEY);
+    }
+}
