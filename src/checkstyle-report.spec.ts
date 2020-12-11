@@ -55,10 +55,7 @@ describe('CheckstyleReport', () => {
         if (!Array.isArray(parsed)) {
             const checkstyleElement = parsed.checkstyle;
             expect(checkstyleElement).toBeTruthy();
-            if (
-                typeof checkstyleElement === 'string' ||
-                Array.isArray(checkstyleElement)
-            ) {
+            if (typeof checkstyleElement === 'string' || Array.isArray(checkstyleElement)) {
                 fail();
             }
             expect(Array.isArray(checkstyleElement.file));

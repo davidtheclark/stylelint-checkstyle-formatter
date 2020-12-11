@@ -25,9 +25,7 @@ export class CheckstyleReport {
 
     startFile(path: string): void {
         if (this.fileLevel) {
-            throw new Error(
-                'You have already started a file. Please call endFile first.',
-            );
+            throw new Error('You have already started a file. Please call endFile first.');
         }
         this.builder = this.builder.ele('file', { name: path });
         this.fileLevel = true;
@@ -35,9 +33,7 @@ export class CheckstyleReport {
 
     endFile(): void {
         if (!this.fileLevel) {
-            throw new Error(
-                'You have not started a file yet. Call startFile first.',
-            );
+            throw new Error('You have not started a file yet. Call startFile first.');
         }
         this.builder = this.builder.up();
         this.fileLevel = false;
@@ -45,9 +41,7 @@ export class CheckstyleReport {
 
     addError(error: CheckstyleError): void {
         if (!this.fileLevel) {
-            throw new Error(
-                'You have not started a file yet. Call startFile first.',
-            );
+            throw new Error('You have not started a file yet. Call startFile first.');
         }
         this.builder = this.builder.ele('error', error).up();
     }
