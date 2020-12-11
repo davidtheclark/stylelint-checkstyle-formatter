@@ -3,5 +3,5 @@
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [],
     "reporters": ["default"],
-    "rootDir": "src"
+    "rootDir": "."
 }

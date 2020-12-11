@@ -2,7 +2,7 @@
     "name": "stylelint-checkstyle-formatter",
     "version": "0.1.2",
     "description": "Output Checkstyle XML reports of stylelint results",
-    "main": "dist/index.js",
+    "main": "index.js",
     "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc --project tsconfig.app.json",
@@ -24,7 +24,8 @@
     "author": "David Clark",
     "license": "MIT",
     "files": [
-        "dist"
+        "dist",
+        "index.js"
     ],
     "bugs": {
         "url": "https://github.com/stylelint/stylelint-checkstyle-formatter/issues"
@@ -47,6 +48,11 @@
         "jest": "^26.6.3",
         "prettier": "^2.2.0",
         "prettier-eslint": "^12.0.0",
+        "rxjs": "^6.6.3",
+        "stylelint": "^13.8.0",
+        "stylelint-config-recommended-scss": "^4.2.0",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-scss": "^3.18.0",
         "ts-jest": "^26.4.4",
         "typescript": "^4.1.2"
     }

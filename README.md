@@ -9,7 +9,7 @@ which might be handy if you use the Jenkins [Checkstyle Plugin](https://wiki.jen
 
 You will want to run this command
 
-`stylelint "**/*.css" --custom-formatter node_modules/stylelint-checkstyle-formatter/dist/index.js -o stylelint.xml >/dev/null 2>&1`
+`stylelint "**/*.css" --custom-formatter node_modules/stylelint-checkstyle-formatter/index.js -o stylelint.xml >/dev/null 2>&1`
 
 The pipe to `/dev/null` is optional but spares you the XML output on your console.
 
