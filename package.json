@@ -1,6 +1,6 @@
 {
-    "name": "stylelint-checkstyle-formatter",
-    "version": "0.1.2",
+    "name": "stylelint-checkstyle-reporter",
+    "version": "0.2.0",
     "description": "Output Checkstyle XML reports of stylelint results",
     "main": "index.js",
     "types": "dist/index.d.ts",
@@ -12,7 +12,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/stylelint/stylelint-checkstyle-formatter.git"
+        "url": "git+https://github.com/lucavb/stylelint-checkstyle-reporter.git"
     },
     "keywords": [
         "stylelint",
@@ -21,16 +21,20 @@
         "reporter",
         "report"
     ],
-    "author": "David Clark",
+    "author": {
+        "name": "Luca Becker",
+        "email": "luca.becker@sunbury.xyz",
+        "url": "https://sunbury.xyz"
+    },
     "license": "MIT",
     "files": [
         "dist",
         "index.js"
     ],
     "bugs": {
-        "url": "https://github.com/stylelint/stylelint-checkstyle-formatter/issues"
+        "url": "https://github.com/lucavb/stylelint-checkstyle-reporter/issues"
     },
-    "homepage": "https://github.com/stylelint/stylelint-checkstyle-formatter#readme",
+    "homepage": "https://github.com/lucavb/stylelint-checkstyle-reporter#readme",
     "dependencies": {
         "xmlbuilder2": "^2.4.0"
     },
