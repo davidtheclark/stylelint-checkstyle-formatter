@@ -58,7 +58,7 @@ describe('CheckstyleReport', () => {
             if (typeof checkstyleElement === 'string' || Array.isArray(checkstyleElement)) {
                 fail();
             }
-            expect(Array.isArray(checkstyleElement.file));
+            expect(Array.isArray(checkstyleElement.file)).toBe(true);
             expect(checkstyleElement.file.length).toBe(3);
         } else {
             fail();

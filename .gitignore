@@ -40,3 +40,4 @@ dist/**/*
 # ignore yarn.lock
 yarn.lock
 test/temp/report.xml
+test/temp/report_pretty.xml
