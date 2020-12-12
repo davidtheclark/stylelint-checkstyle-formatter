@@ -1,5 +1,5 @@
 import { exec } from 'child_process';
-import { bindCallback, EMPTY, from, Observable, of, Subscription } from 'rxjs';
+import { bindCallback, from, Observable, of, Subscription } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { promises as fs } from 'fs';
 import { convert } from 'xmlbuilder2';
@@ -7,11 +7,10 @@ import DoneCallback = jest.DoneCallback;
 
 const DEFAULT_REPORT_FILE = 'test/temp/report.xml';
 
-const generateCommand = (formatter?: string, reportFile?: string) => {
-    return `npx stylelint ./test/assets/*.scss --config test/config/.stylelintrc.json --custom-formatter ${
+const generateCommand = (formatter?: string, reportFile?: string) =>
+    `npx stylelint ./test/assets/*.scss --config test/config/.stylelintrc.json --custom-formatter ${
         formatter ?? 'index.js'
     } -o ${reportFile ?? DEFAULT_REPORT_FILE}`;
-};
 
 describe('integration with stylelint', () => {
     let subscription: Subscription;
