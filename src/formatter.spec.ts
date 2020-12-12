@@ -53,17 +53,18 @@ const mockResults: LintResult[] = [
 ];
 
 const expectedXml = convert(
-    '<?xml version="1.0" encoding="utf-8"?>\n' +
-        '<checkstyle version="4.3">\n' +
-        '  <file name="path/to/fileA.css">\n' +
-        '    <error source="stylelint.rules.block-no-empty" line="3" column="8" severity="warning" message="No empty block!" />\n' +
-        '  </file>\n' +
-        '  <file name="path/to/fileB.css">\n' +
-        '    <error source="stylelint.rules.foo" line="1" column="2" severity="error" message="foo text" />\n' +
-        '    <error source="stylelint.rules.bar" line="2" column="5" severity="error" message="bar text" />\n' +
-        '  </file>\n' +
-        '  <file name="path/to/fileC.css"></file>\n' +
-        '</checkstyle>',
+    `
+        <?xml version="1.0" encoding="UTF-8"?>
+        <checkstyle version="4.3">
+           <file name="path/to/fileA.css">
+              <error source="stylelint.rules.block-no-empty" line="3" column="8" severity="warning" message="No empty block!" />
+           </file>
+           <file name="path/to/fileB.css">
+              <error source="stylelint.rules.foo" line="1" column="2" severity="error" message="foo text" />
+              <error source="stylelint.rules.bar" line="2" column="5" severity="error" message="bar text" />
+           </file>
+           <file name="path/to/fileC.css" />
+        </checkstyle>`,
     { format: 'object' },
 );
 
