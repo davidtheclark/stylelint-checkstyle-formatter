@@ -1,8 +1,9 @@
 import { exec } from 'child_process';
 import { bindCallback, from, Observable, of, Subscription } from 'rxjs';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap, timeout } from 'rxjs/operators';
 import { promises as fs } from 'fs';
 import { convert } from 'xmlbuilder2';
+import { F_OK } from 'constants';
 import DoneCallback = jest.DoneCallback;
 
 const DEFAULT_REPORT_FILE = 'test/temp/report.xml';
@@ -14,6 +15,19 @@ const generateCommand = (formatter?: string, reportFile?: string) =>
 
 describe('integration with stylelint', () => {
     let subscription: Subscription;
+
+    beforeAll((done: DoneCallback) => {
+        from(fs.access('dist/index.js', F_OK))
+            .pipe(
+                timeout(3 * 1000),
+                catchError(() => {
+                    console.warn("The file 'dist/index.js' could not be found. Did you compile the project first?");
+                    return of(undefined);
+                }),
+                tap(() => done()),
+            )
+            .subscribe();
+    });
 
     beforeEach(() => {
         subscription = new Subscription();
