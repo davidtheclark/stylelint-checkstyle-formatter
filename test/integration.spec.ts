@@ -1,4 +1,4 @@
-import { exec } from 'child_process';
+import { exec, ExecException } from 'child_process';
 import { bindCallback, from, Observable, of, Subscription } from 'rxjs';
 import { catchError, map, switchMap, tap, timeout } from 'rxjs/operators';
 import { promises as fs } from 'fs';
@@ -39,7 +39,7 @@ describe('integration with stylelint', () => {
 
     it('should produce an xml file', (done: DoneCallback) => {
         const boundExec = bindCallback(exec);
-        const REPORT_FILE = 'test/temp/report.xml';
+        const REPORT_FILE = DEFAULT_REPORT_FILE;
         const command = generateCommand();
         subscription.add(
             from(fs.unlink(REPORT_FILE))
@@ -49,7 +49,7 @@ describe('integration with stylelint', () => {
                     switchMap((): Observable<Buffer> => from(fs.readFile(REPORT_FILE))),
                     map((buffer: Buffer): string => buffer.toString()),
                     tap((xmlContent: string): void => {
-                        expect(xmlContent.length).toBeGreaterThan(10);
+                        expect(xmlContent).toContain('<checkstyle');
                         expect(xmlContent).not.toContain('\n');
                         const f = () => convert(xmlContent, { format: 'object' });
                         expect(f).not.toThrow();
@@ -61,7 +61,7 @@ describe('integration with stylelint', () => {
     });
 
     it('should generate linebreaks with pretty formatting', (done: DoneCallback) => {
-        const boundExec = bindCallback(exec);
+        const boundExec = bindCallback<string, ExecException | null, string | Buffer, string | Buffer>(exec);
         const reportFile = 'test/temp/report_pretty.xml';
         const command = generateCommand('examples/prettyprint.js', reportFile);
         subscription.add(
@@ -72,7 +72,7 @@ describe('integration with stylelint', () => {
                     switchMap((): Observable<Buffer> => from(fs.readFile(reportFile))),
                     map((buffer: Buffer): string => buffer.toString()),
                     tap((xmlContent: string): void => {
-                        expect(xmlContent.length).toBeGreaterThan(10);
+                        expect(xmlContent).toContain('<checkstyle');
                         expect(xmlContent).toContain('\n');
                         const f = () => convert(xmlContent, { format: 'object' });
                         expect(f).not.toThrow();
