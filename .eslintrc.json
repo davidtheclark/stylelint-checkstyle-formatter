@@ -14,6 +14,7 @@
     "rules": {
         "prettier/prettier": ["error"],
         "require-jsdoc": "off",
+        "eqeqeq": "error",
         "@typescript-eslint/no-unused-vars": "off",
         "unused-imports/no-unused-imports-ts": "error",
         "unused-imports/no-unused-vars-ts": [
