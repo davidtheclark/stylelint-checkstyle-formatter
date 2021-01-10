@@ -10,8 +10,8 @@
         "lint": "npm run lint:prettier && npm run lint:eslint",
         "lint:eslint": "npx eslint {src,test}/**/*.ts",
         "lint:eslint:fix": "npx eslint {src,test}/**/*.ts",
-        "lint:prettier": "npx prettier --check \"./**/*.{json,scss,ts,js,md}\"",
-        "lint:prettier:fix": "npx prettier --write \"./**/*.{json,scss,ts,js,md}\"",
+        "lint:prettier": "prettier \"**/*\" --check --ignore-unknown",
+        "lint:prettier:fix": "prettier \"**/*\" --write --ignore-unknown",
         "prepack": "npm run build",
         "test": "jest"
     },
