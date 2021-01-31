@@ -18,7 +18,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/lucavb/stylelint-checkstyle-reporter.git"
+        "url": "git@github.com:lucavb/stylelint-checkstyle-reporter.git"
     },
     "keywords": [
         "stylelint",
