@@ -42,7 +42,7 @@
     },
     "homepage": "https://github.com/lucavb/stylelint-checkstyle-reporter#readme",
     "dependencies": {
-        "xmlbuilder2": "2.4.0"
+        "xmlbuilder2": "2.4.1"
     },
     "devDependencies": {
         "@commitlint/cli": "12.1.1",
