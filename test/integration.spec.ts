@@ -1,4 +1,4 @@
-import { exec, ExecException } from 'child_process';
+import { exec } from 'child_process';
 import { bindCallback, from, Observable, of, Subscription } from 'rxjs';
 import { catchError, map, switchMap, tap, timeout } from 'rxjs/operators';
 import { promises as fs } from 'fs';
@@ -45,7 +45,7 @@ describe('integration with stylelint', () => {
             from(fs.unlink(REPORT_FILE))
                 .pipe(
                     catchError(() => of(null)),
-                    switchMap(() => boundExec(command)),
+                    switchMap(() => boundExec(command, {})),
                     switchMap((): Observable<Buffer> => from(fs.readFile(REPORT_FILE))),
                     map((buffer: Buffer): string => buffer.toString()),
                     tap((xmlContent: string): void => {
@@ -61,14 +61,14 @@ describe('integration with stylelint', () => {
     });
 
     it('should generate linebreaks with pretty formatting', (done: DoneCallback) => {
-        const boundExec = bindCallback<string, ExecException | null, string | Buffer, string | Buffer>(exec);
+        const boundExec = bindCallback(exec);
         const reportFile = 'test/temp/report_pretty.xml';
         const command = generateCommand('examples/prettyprint.js', reportFile);
         subscription.add(
             from(fs.unlink(reportFile))
                 .pipe(
                     catchError((): Observable<null> => of(null)),
-                    switchMap((): Observable<unknown> => boundExec(command)),
+                    switchMap((): Observable<unknown> => boundExec(command, {})),
                     switchMap((): Observable<Buffer> => from(fs.readFile(reportFile))),
                     map((buffer: Buffer): string => buffer.toString()),
                     tap((xmlContent: string): void => {
