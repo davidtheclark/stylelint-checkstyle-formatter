@@ -60,7 +60,7 @@
         "eslint-plugin-import": "2.24.2",
         "eslint-plugin-prettier": "4.0.0",
         "eslint-plugin-unused-imports": "1.1.5",
-        "jest": "27.4.0",
+        "jest": "27.5.1",
         "prettier": "2.4.1",
         "prettier-eslint": "13.0.0",
         "rxjs": "7.3.0",
