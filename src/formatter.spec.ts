@@ -18,6 +18,7 @@ const mockResults: LintResult[] = [
         errored: true,
         invalidOptionWarnings: [],
         ignored: false,
+        parseErrors: [],
     },
     {
         source: 'path/to/fileB.css',
@@ -41,6 +42,7 @@ const mockResults: LintResult[] = [
         deprecations: [],
         invalidOptionWarnings: [],
         ignored: false,
+        parseErrors: [],
     },
     {
         source: 'path/to/fileC.css',
@@ -49,6 +51,7 @@ const mockResults: LintResult[] = [
         deprecations: [],
         invalidOptionWarnings: [],
         ignored: false,
+        parseErrors: [],
     },
 ];
 

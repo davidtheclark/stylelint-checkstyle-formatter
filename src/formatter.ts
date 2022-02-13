@@ -5,6 +5,9 @@ import { XMLWriterOptions } from 'xmlbuilder2/lib/interfaces';
 export const stylelintToCheckstyle = (stylelintResults: LintResult[], outputConfig?: XMLWriterOptions): string => {
     const checkStyleReport = new CheckstyleReport();
     stylelintResults.forEach((stylelintResult: LintResult) => {
+        if (!stylelintResult.source) {
+            return;
+        }
         checkStyleReport.startFile(stylelintResult.source);
         stylelintResult.warnings.forEach((warning: Warning) => {
             checkStyleReport.addError({
