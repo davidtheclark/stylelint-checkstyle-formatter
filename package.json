@@ -48,7 +48,7 @@
         "@commitlint/cli": "13.1.0",
         "@commitlint/config-conventional": "13.2.0",
         "@semantic-release/changelog": "5.0.1",
-        "@semantic-release/git": "9.0.1",
+        "@semantic-release/git": "10.0.1",
         "@types/jest": "27.0.2",
         "@types/node": "16.11.11",
         "@types/stylelint": "13.13.2",
