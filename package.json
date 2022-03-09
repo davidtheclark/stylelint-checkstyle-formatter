@@ -62,7 +62,7 @@
         "jest": "27.5.1",
         "prettier": "2.5.1",
         "prettier-eslint": "13.0.0",
-        "rxjs": "7.5.4",
+        "rxjs": "7.5.5",
         "semantic-release": "19.0.2",
         "stylelint": "14.5.3",
         "stylelint-config-recommended-scss": "5.0.2",
