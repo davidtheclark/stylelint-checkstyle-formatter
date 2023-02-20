@@ -1,17 +1,11 @@
-import type { Config } from '@jest/types';
+import type { JestConfigWithTsJest } from 'ts-jest';
 
-const jestConfig: Config.InitialOptions = {
+const jestConfig: JestConfigWithTsJest = {
     preset: 'ts-jest',
     testEnvironment: 'node',
     coveragePathIgnorePatterns: [],
     reporters: ['default'],
     rootDir: '.',
-    globals: {
-        'ts-jest': {
-            compiler: 'typescript',
-            tsConfig: './tsconfig.spec.json',
-        },
-    },
 };
 
 export default jestConfig;
